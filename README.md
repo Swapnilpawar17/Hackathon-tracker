@@ -1,5 +1,6 @@
 # 🚀 Hackathon Tracker - Notion Automation
 
+![Banner](assets/banner.png)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
 [![Notion API](https://img.shields.io/badge/Notion-API-black)](https://developers.notion.com/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
