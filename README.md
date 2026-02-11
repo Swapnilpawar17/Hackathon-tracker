@@ -24,10 +24,10 @@ Automatically discover, scrape, and track hackathons for CSE/IT students and fre
 <summary>Click to view screenshots</summary>
 
 ### Notion Database View
-![Notion Database](https://via.placeholder.com/800x400?text=Notion+Database+Screenshot)
+![Notion Database](assets/notion-database.png)
 
 ### Script Running
-![Script Output](https://via.placeholder.com/800x400?text=Terminal+Output+Screenshot)
+![Script Output](assets/terminal-output.png)
 
 </details>
 
