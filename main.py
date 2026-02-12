@@ -3,6 +3,7 @@ from notion_client import Client
 from dotenv import load_dotenv
 from datetime import datetime
 from scrapers import HackathonScraper
+from india_scrapers import IndiaHackathonScraper
 from manual_sources import get_manual_hackathons
 import time
 
@@ -17,6 +18,7 @@ class NotionUpdater:
     def get_existing_hackathons(self):
         """Get existing hackathons to avoid duplicates"""
         try:
+            # Updated for notion-client 2.x
             results = self.notion.databases.query(**{"database_id": self.database_id})
             existing = {}
             
@@ -148,29 +150,46 @@ def main():
     print("   HACKATHON SCRAPER & NOTION UPDATER")
     print("🎯"*30 + "\n")
     
-    # Step 1: Scrape hackathons
-    print("STEP 1: Scraping hackathons from web...\n")
+    # Step 1: Scrape international hackathons
+    print("STEP 1: Scraping international hackathon platforms...\n")
     scraper = HackathonScraper()
     hackathons = scraper.get_all_hackathons()
     
-    # Step 1.5: Add manual hackathons
-    print("\nSTEP 1.5: Adding manually curated hackathons...\n")
+    # Step 2: Scrape India-specific platforms
+    print("\nSTEP 2: Scraping India-specific platforms...\n")
+    india_scraper = IndiaHackathonScraper()
+    india_hackathons = india_scraper.get_all_india_hackathons()
+    hackathons.extend(india_hackathons)
+    
+    # Step 3: Add manual hackathons
+    print("\nSTEP 3: Adding manually curated hackathons...\n")
     manual_hacks = get_manual_hackathons()
     print(f"➕ Added {len(manual_hacks)} manually curated hackathons")
     hackathons.extend(manual_hacks)
-    print(f"📊 Total hackathons to process: {len(hackathons)}\n")
+    
+    print(f"\n📊 Total hackathons to process: {len(hackathons)}\n")
     
     if not hackathons:
-        print("⚠️  No hackathons found from scraping.")
-        print("💡 TIP: You can add manual hackathons in the next step!\n")
+        print("⚠️  No hackathons found from any source.")
+        print("💡 TIP: Check your internet connection or try again later!\n")
         return
     
-    # Step 2: Update Notion
-    print("\nSTEP 2: Adding hackathons to Notion...\n")
+    # Step 4: Update Notion
+    print("\nSTEP 4: Adding hackathons to Notion...\n")
     updater = NotionUpdater()
     added, skipped, failed = updater.update_database(hackathons)
     
-    # Step 3: Show highlights
+    # Step 5: Show platform breakdown
+    print("\n📊 PLATFORM BREAKDOWN:\n")
+    platform_counts = {}
+    for hack in hackathons:
+        platform = hack.get('platform', 'Unknown')
+        platform_counts[platform] = platform_counts.get(platform, 0) + 1
+    
+    for platform, count in sorted(platform_counts.items(), key=lambda x: x[1], reverse=True):
+        print(f"   {platform}: {count} hackathons")
+    
+    # Step 6: Show highlights
     if added > 0:
         print("\n🌟 TOP FRESHLY ADDED HACKATHONS:\n")
         fresher_friendly = [h for h in hackathons if h.get('fresher_friendly', False)]
