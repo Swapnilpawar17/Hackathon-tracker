@@ -5,6 +5,8 @@ from datetime import datetime
 from scrapers import HackathonScraper
 from india_scrapers import IndiaHackathonScraper
 from manual_sources import get_manual_hackathons
+from filters import apply_all_filters, get_statistics
+from simple_notifier import SimpleNotifier
 import time
 
 # Load environment variables
@@ -111,6 +113,7 @@ class NotionUpdater:
         added = 0
         skipped = 0
         failed = 0
+        new_hackathons = []
         
         for hackathon in hackathons:
             # Create unique identifier
@@ -124,6 +127,7 @@ class NotionUpdater:
             # Try to add
             if self.create_hackathon_page(hackathon):
                 added += 1
+                new_hackathons.append(hackathon)
                 print(f"✅ Added: {hackathon.get('name', 'Unknown')[:60]}")
             else:
                 failed += 1
@@ -141,10 +145,10 @@ class NotionUpdater:
         print(f"📊 Total in database: {len(existing) + added}")
         print("="*60 + "\n")
         
-        return added, skipped, failed
+        return added, skipped, failed, new_hackathons
 
 
-def main():
+def main(send_notification=True):
     """Main execution"""
     print("\n" + "🎯"*30)
     print("   HACKATHON SCRAPER & NOTION UPDATER")
@@ -161,44 +165,64 @@ def main():
     india_hackathons = india_scraper.get_all_india_hackathons()
     hackathons.extend(india_hackathons)
     
-    # Step 3: Add manual hackathons
-    print("\nSTEP 3: Adding manually curated hackathons...\n")
+    # Step 3: Add manual hackathons (only LIVE ones)
+    print("\nSTEP 3: Adding manually curated LIVE hackathons...\n")
     manual_hacks = get_manual_hackathons()
-    print(f"➕ Added {len(manual_hacks)} manually curated hackathons")
+    print(f"➕ Added {len(manual_hacks)} manually curated LIVE hackathons")
     hackathons.extend(manual_hacks)
     
-    print(f"\n📊 Total hackathons to process: {len(hackathons)}\n")
+    # Show statistics before filtering
+    print(f"\n📊 Total hackathons found (before filtering): {len(hackathons)}")
+    
+    # Step 4: Apply filters - ONLY LIVE HACKATHONS
+    print("\nSTEP 4: Filtering for LIVE hackathons only...\n")
+    
+    # Get stats before filtering
+    stats_before = get_statistics(hackathons)
+    print(f"   Before filtering: {stats_before['live']} Live, {stats_before['upcoming']} Upcoming")
+    
+    # Apply strict LIVE filter
+    hackathons = apply_all_filters(hackathons, live_only=True, fresher_only=False, remove_dupes=True)
+    
+    print(f"📊 Total LIVE hackathons after filtering: {len(hackathons)}\n")
     
     if not hackathons:
-        print("⚠️  No hackathons found from any source.")
-        print("💡 TIP: Check your internet connection or try again later!\n")
+        print("⚠️  No LIVE hackathons found from any source.")
+        print("💡 TIP: Check if any hackathons are currently accepting registrations!\n")
         return
     
-    # Step 4: Update Notion
-    print("\nSTEP 4: Adding hackathons to Notion...\n")
+    # Step 5: Update Notion
+    print("\nSTEP 5: Adding LIVE hackathons to Notion...\n")
     updater = NotionUpdater()
-    added, skipped, failed = updater.update_database(hackathons)
+    added, skipped, failed, new_hackathons = updater.update_database(hackathons)
     
-    # Step 5: Show platform breakdown
-    print("\n📊 PLATFORM BREAKDOWN:\n")
+    # Step 6: Platform breakdown
+    print("\n📊 PLATFORM BREAKDOWN (LIVE HACKATHONS):\n")
     platform_counts = {}
     for hack in hackathons:
         platform = hack.get('platform', 'Unknown')
         platform_counts[platform] = platform_counts.get(platform, 0) + 1
     
     for platform, count in sorted(platform_counts.items(), key=lambda x: x[1], reverse=True):
-        print(f"   {platform}: {count} hackathons")
+        print(f"   {platform}: {count} LIVE hackathons")
     
-    # Step 6: Show highlights
+    # Step 7: Send notification
+    if send_notification and new_hackathons:
+        print("\n\nSTEP 7: Sending notification...\n")
+        notifier = SimpleNotifier()
+        notifier.send_notification(new_hackathons)
+    
+    # Step 8: Show highlights
     if added > 0:
-        print("\n🌟 TOP FRESHLY ADDED HACKATHONS:\n")
-        fresher_friendly = [h for h in hackathons if h.get('fresher_friendly', False)]
-        for i, hack in enumerate(fresher_friendly[:5], 1):
+        print("\n🌟 TOP NEWLY ADDED LIVE HACKATHONS:\n")
+        for i, hack in enumerate(new_hackathons[:5], 1):
             print(f"{i}. {hack['name']}")
             print(f"   Platform: {hack['platform']} | Mode: {hack.get('mode', 'N/A')}")
+            print(f"   Prize: {hack.get('prize_pool', 'N/A')}")
             print(f"   🔗 {hack.get('registration_link', 'N/A')}\n")
     
     print("✨ Process completed successfully!")
+    print("📊 Your Notion database now contains only LIVE hackathons!")
     print("🔗 Check your Notion database now!\n")
 
 

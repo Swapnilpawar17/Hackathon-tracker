@@ -1,0 +1,189 @@
+{
+  "timestamp": "2026-02-12T19:42:23.716446",
+  "count": 33,
+  "hackathons": [
+    {
+      "name": "DPhi AI Bootcamp Challenge",
+      "platform": "DPhi",
+      "registration_link": "https://dphi.tech/challenges",
+      "mode": "Online",
+      "fresher_friendly": true,
+      "status": "Live",
+      "organizer": "DPhi Tech"
+    },
+    {
+      "name": "Solswitch",
+      "platform": "GitHub",
+      "registration_link": "https://github.com/decentrathai/solswitch",
+      "mode": "Online",
+      "organizer": "decentrathai",
+      "fresher_friendly": true,
+      "status": "Live"
+    },
+    {
+      "name": "Fraudlens Ai",
+      "platform": "GitHub",
+      "registration_link": "https://github.com/Abi5678/fraudlens-ai",
+      "mode": "Online",
+      "organizer": "Abi5678",
+      "fresher_friendly": true,
+      "status": "Live"
+    },
+    {
+      "name": "2026 Google Hackathon",
+      "platform": "GitHub",
+      "registration_link": "https://github.com/Kadoshima/2026_google_Hackathon",
+      "mode": "Online",
+      "organizer": "Kadoshima",
+      "fresher_friendly": true,
+      "status": "Live"
+    },
+    {
+      "name": "Repomedic",
+      "platform": "GitHub",
+      "registration_link": "https://github.com/jeanclawdbotdamn/repomedic",
+      "mode": "Online",
+      "organizer": "jeanclawdbotdamn",
+      "fresher_friendly": true,
+      "status": "Live"
+    },
+    {
+      "name": "Moltapp",
+      "platform": "GitHub",
+      "registration_link": "https://github.com/patruff/moltapp",
+      "mode": "Online",
+      "organizer": "patruff",
+      "fresher_friendly": true,
+      "status": "Live"
+    },
+    {
+      "name": "Taleemabad Hackathon Study Plannerr",
+      "platform": "GitHub",
+      "registration_link": "https://github.com/umairsolangi/taleemabad-hackathon-study-plannerr",
+      "mode": "Online",
+      "organizer": "umairsolangi",
+      "fresher_friendly": true,
+      "status": "Live"
+    },
+    {
+      "name": "Claude Code Hackathon",
+      "platform": "GitHub",
+      "registration_link": "https://github.com/mrlukealvarez/claude-code-hackathon",
+      "mode": "Online",
+      "organizer": "mrlukealvarez",
+      "fresher_friendly": true,
+      "status": "Live"
+    },
+    {
+      "name": "True Claim",
+      "platform": "GitHub",
+      "registration_link": "https://github.com/Udit-Agrawal-2007/True-Claim",
+      "mode": "Online",
+      "organizer": "Udit-Agrawal-2007",
+      "fresher_friendly": true,
+      "status": "Live"
+    },
+    {
+      "name": "Chalo Kisaan",
+      "platform": "GitHub",
+      "registration_link": "https://github.com/jishanahmed-shaikh/chalo-kisaan",
+      "mode": "Online",
+      "organizer": "jishanahmed-shaikh",
+      "fresher_friendly": true,
+      "status": "Live"
+    },
+    {
+      "name": "2026 Hackathon",
+      "platform": "GitHub",
+      "registration_link": "https://github.com/MADHAVAN-kds/2026-Hackathon",
+      "mode": "Online",
+      "organizer": "MADHAVAN-kds",
+      "fresher_friendly": true,
+      "status": "Live"
+    },
+    {
+      "name": "GitHub Campus Expert Program",
+      "platform": "GitHub",
+      "organizer": "GitHub Education",
+      "mode": "Online",
+      "registration_link": "https://education.github.com/experts",
+      "prize_pool": "Training + Swag + Conference Tickets",
+      "fresher_friendly": true,
+      "status": "Live"
+    },
+    {
+      "name": "Global Hack Week: GenAI",
+      "platform": "MLH",
+      "registration_link": "https://events.mlh.io/events/12402-global-hack-week-genai?utm_source=mlh&utm_medium=referral&utm_campaign=season_events&utm_content=Global+Hack+Week%3A+GenAI",
+      "organizer": "Major League Hacking",
+      "mode": "Hybrid",
+      "fresher_friendly": true,
+      "status": "Live"
+    },
+    {
+      "name": "Global Hack Week: Open Source Week",
+      "platform": "MLH",
+      "registration_link": "https://events.mlh.io/events/12300-global-hack-week-open-source-week?utm_source=mlh&utm_medium=referral&utm_campaign=season_events&utm_content=Global+Hack+Week%3A+Open+Source+Week",
+      "organizer": "Major League Hacking",
+      "mode": "Hybrid",
+      "fresher_friendly": true,
+      "status": "Live"
+    },
+    {
+      "name": "Global Hack Week: API Week",
+      "platform": "MLH",
+      "registration_link": "https://events.mlh.io/events/12179-global-hack-week-api-week?utm_source=mlh&utm_medium=referral&utm_campaign=season_events&utm_content=Global+Hack+Week%3A+API+Week",
+      "organizer": "Major League Hacking",
+      "mode": "Hybrid",
+      "fresher_friendly": true,
+      "status": "Live"
+    },
+    {
+      "name": "Global Hack Week: Cloud Week",
+      "platform": "MLH",
+      "registration_link": "https://events.mlh.io/events/12083-global-hack-week-cloud-week?utm_source=mlh&utm_medium=referral&utm_campaign=season_events&utm_content=Global+Hack+Week%3A+Cloud+Week",
+      "organizer": "Major League Hacking",
+      "mode": "Hybrid",
+      "fresher_friendly": true,
+      "status": "Live"
+    },
+    {
+      "name": "Global Hack Week: AI/ML Week",
+      "platform": "MLH",
+      "registration_link": "https://events.mlh.io/events/12026-global-hack-week-ai-ml-week?utm_source=mlh&utm_medium=referral&utm_campaign=season_events&utm_content=Global+Hack+Week%3A+AI%2FML+Week",
+      "organizer": "Major League Hacking",
+      "mode": "Hybrid",
+      "fresher_friendly": true,
+      "status": "Live"
+    },
+    {
+      "name": "Global Hack Week: Beginners Week",
+      "platform": "MLH",
+      "registration_link": "https://events.mlh.io/events/11842-global-hack-week-beginners-week?utm_source=mlh&utm_medium=referral&utm_campaign=season_events&utm_content=Global+Hack+Week%3A+Beginners+Week",
+      "organizer": "Major League Hacking",
+      "mode": "Hybrid",
+      "fresher_friendly": true,
+      "status": "Live"
+    },
+    {
+      "name": "Google Solution Challenge 2025",
+      "platform": "Other",
+      "organizer": "Google Developer Student Clubs",
+      "mode": "Online",
+      "registration_link": "https://developers.google.com/community/gdsc-solution-challenge",
+      "prize_pool": "$3,000 + Mentorship + Swag",
+      "fresher_friendly": true,
+      "status": "Live"
+    },
+    {
+      "name": "Microsoft Imagine Cup 2025",
+      "platform": "Other",
+      "organizer": "Microsoft",
+      "mode": "Online",
+      "registration_link": "https://imaginecup.microsoft.com/",
+      "prize_pool": "$100,000 + Azure Credits + Mentorship",
+      "fresher_friendly": true,
+      "status": "Live"
+    }
+  ]
+}
