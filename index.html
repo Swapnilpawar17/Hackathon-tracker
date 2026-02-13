@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hackathon Tracker | Live Dashboard</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,7 +15,15 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-color: #09090b; /* Deep slate/black */
+            /* Subtle tech grid background */
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.06), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(129, 140, 248, 0.06), transparent 25%),
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+            color: #e4e4e7;
             min-height: 100vh;
             padding: 20px;
         }
@@ -25,55 +33,69 @@
             margin: 0 auto;
         }
 
+        /* Glassmorphism Base */
+        .glass-panel {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
         header {
-            background: white;
             border-radius: 20px;
             padding: 30px;
             margin-bottom: 30px;
             text-align: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             animation: slideDown 0.6s ease;
         }
 
         @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
-            font-size: 32px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            font-size: 36px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
+            letter-spacing: -0.5px;
         }
 
         .subtitle {
-            color: #666;
+            color: #a1a1aa;
             font-size: 16px;
         }
 
         .live-badge {
-            display: inline-block;
-            background: #10b981;
-            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.1);
+            color: #34d399;
             padding: 8px 20px;
             border-radius: 25px;
+            border: 1px solid rgba(52, 211, 153, 0.2);
             font-size: 14px;
             font-weight: 600;
             margin-top: 15px;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #34d399;
+            border-radius: 50%;
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.05); }
+            0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(52, 211, 153, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
         }
 
         .stats {
@@ -84,29 +106,22 @@
         }
 
         .stat-card {
-            background: white;
             padding: 25px;
             border-radius: 15px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             animation: fadeIn 0.6s ease;
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .stat-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.15);
+            border-color: rgba(56, 189, 248, 0.3);
+            box-shadow: 0 15px 40px rgba(56, 189, 248, 0.1);
         }
 
         .stat-icon {
@@ -115,27 +130,30 @@
         }
 
         .stat-number {
-            font-size: 40px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            font-family: 'Fira Code', monospace;
+            font-size: 36px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #e0f2fe, #bae6fd);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .stat-label {
-            color: #666;
-            font-size: 14px;
+            color: #a1a1aa;
+            font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-top: 5px;
+            font-weight: 600;
         }
 
         .filters {
-            background: white;
             padding: 20px;
             border-radius: 15px;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
         }
 
         .filter-row {
@@ -151,26 +169,39 @@
 
         .filter-label {
             display: block;
-            color: #333;
-            font-size: 14px;
+            color: #d4d4d8;
+            font-size: 13px;
             font-weight: 600;
             margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         input, select {
             width: 100%;
             padding: 12px 15px;
-            border: 2px solid #e5e7eb;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #f4f4f5;
             border-radius: 10px;
             font-size: 14px;
+            font-family: 'Inter', sans-serif;
             transition: all 0.3s;
-            background: white;
+        }
+
+        input::placeholder {
+            color: #71717a;
         }
 
         input:focus, select:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+            border-color: #38bdf8;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+        }
+        
+        select option {
+            background: #18181b;
+            color: #f4f4f5;
         }
 
         .grid {
@@ -181,65 +212,65 @@
         }
 
         .card {
-            background: white;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.2);
+            transform: translateY(-8px);
+            border-color: rgba(129, 140, 248, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(129, 140, 248, 0.1);
         }
 
         .card-header {
-            background: linear-gradient(135deg, #667eea, #764ba2);
             padding: 25px;
-            color: white;
-            position: relative;
-        }
-
-        .card-header::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            right: 0;
-            height: 20px;
-            background: inherit;
-            transform: skewY(-2deg);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%);
         }
 
         .card-title {
             font-size: 20px;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             line-height: 1.3;
+            color: #f4f4f5;
         }
 
         .tags {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
         }
 
         .tag {
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-            padding: 5px 12px;
-            border-radius: 8px;
+            background: rgba(56, 189, 248, 0.1);
+            color: #7dd3fc;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 4px 12px;
+            border-radius: 6px;
             font-size: 12px;
             font-weight: 600;
         }
 
+        .tag.mode {
+            background: rgba(167, 139, 250, 0.1);
+            color: #c4b5fd;
+            border-color: rgba(167, 139, 250, 0.2);
+        }
+
         .card-body {
-            padding: 30px 25px 25px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .info {
             margin-bottom: 12px;
-            color: #555;
+            color: #a1a1aa;
             font-size: 14px;
             display: flex;
             align-items: center;
@@ -247,52 +278,58 @@
         }
 
         .info-icon {
-            color: #667eea;
+            color: #818cf8;
         }
 
         .fresher-badge {
-            color: #10b981;
+            color: #34d399;
             font-weight: 600;
+            background: rgba(52, 211, 153, 0.1);
+            padding: 4px 10px;
+            border-radius: 6px;
+            display: inline-flex;
+            width: fit-content;
         }
 
         .prize {
-            background: linear-gradient(135deg, #fbbf24, #f59e0b);
-            color: white;
-            padding: 10px 18px;
-            border-radius: 12px;
-            font-weight: 700;
+            font-family: 'Fira Code', monospace;
+            background: rgba(251, 191, 36, 0.1);
+            color: #fcd34d;
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
             display: inline-block;
             margin: 15px 0;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .btn {
             display: block;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
+            background: #f4f4f5;
+            color: #09090b;
             text-align: center;
-            padding: 15px;
-            border-radius: 12px;
+            padding: 12px;
+            border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
+            font-weight: 700;
+            font-size: 14px;
             transition: all 0.3s;
-            margin-top: 15px;
+            margin-top: auto;
         }
 
         .btn:hover {
-            transform: scale(1.03);
-            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+            background: #38bdf8;
+            color: #09090b;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
         }
 
         footer {
-            background: white;
             padding: 30px;
             border-radius: 15px;
             text-align: center;
             margin-top: 30px;
-            color: #666;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            color: #a1a1aa;
         }
 
         .footer-links {
@@ -300,79 +337,78 @@
         }
 
         .footer-links a {
-            color: #667eea;
+            color: #e4e4e7;
             text-decoration: none;
             margin: 0 15px;
             font-weight: 600;
-            transition: color 0.3s;
+            transition: all 0.3s;
         }
 
         .footer-links a:hover {
-            color: #764ba2;
+            color: #38bdf8;
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
         }
 
         .no-results {
-            background: white;
             padding: 60px;
             border-radius: 20px;
             text-align: center;
-            color: #666;
+            color: #a1a1aa;
         }
 
         .no-results-icon {
             font-size: 60px;
             margin-bottom: 20px;
+            opacity: 0.5;
         }
 
         @media (max-width: 768px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-            h1 {
-                font-size: 26px;
-            }
-            .filter-row {
-                flex-direction: column;
-            }
+            .grid { grid-template-columns: 1fr; }
+            h1 { font-size: 28px; }
+            .filter-row { flex-direction: column; }
+            .filters { position: static; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
+        <header class="glass-panel">
             <h1>🚀 Hackathon Tracker</h1>
             <p class="subtitle">Live hackathons for CSE students & freshers</p>
-            <span class="live-badge">🔴 LIVE DATA</span>
+            <div class="live-badge">
+                <div class="live-dot"></div>
+                LIVE DATA
+            </div>
         </header>
 
         <div class="stats">
-            <div class="stat-card">
+            <div class="stat-card glass-panel">
                 <div class="stat-icon">🏆</div>
-                <div class="stat-number" id="total-count">10</div>
+                <div class="stat-number" id="total-count">0</div>
                 <div class="stat-label">Live Hackathons</div>
             </div>
-            <div class="stat-card">
+            <div class="stat-card glass-panel">
                 <div class="stat-icon">🌐</div>
-                <div class="stat-number" id="platform-count">8</div>
+                <div class="stat-number" id="platform-count">9</div>
                 <div class="stat-label">Platforms</div>
             </div>
-            <div class="stat-card">
+            <div class="stat-card glass-panel">
                 <div class="stat-icon">👥</div>
-                <div class="stat-number" id="fresher-count">10</div>
+                <div class="stat-number" id="fresher-count">0</div>
                 <div class="stat-label">Fresher Friendly</div>
             </div>
-            <div class="stat-card">
+            <div class="stat-card glass-panel">
                 <div class="stat-icon">💰</div>
                 <div class="stat-number">$500K+</div>
                 <div class="stat-label">Total Prizes</div>
             </div>
         </div>
 
-        <div class="filters">
+        <div class="filters glass-panel">
             <div class="filter-row">
                 <div class="filter-group">
                     <label class="filter-label">🔍 Search</label>
-                    <input type="text" id="search" placeholder="Search hackathons..." oninput="filterHackathons()">
+                    <input type="text" id="search" placeholder="Search hackathons, organizers..." oninput="filterHackathons()">
                 </div>
                 <div class="filter-group">
                     <label class="filter-label">📍 Platform</label>
@@ -387,6 +423,7 @@
                         <option value="Codeforces">Codeforces</option>
                         <option value="GitHub">GitHub</option>
                         <option value="Meta">Meta</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
                 <div class="filter-group">
@@ -403,14 +440,14 @@
 
         <div id="hackathon-grid" class="grid"></div>
 
-        <footer>
-            <p>Built with ❤️ by <strong>Swapnil Pawar</strong></p>
+        <footer class="glass-panel">
+            <p>Built with 💻 by <strong>Swapnil Pawar</strong></p>
             <div class="footer-links">
                 <a href="https://github.com/Swapnilpawar17" target="_blank">🔗 GitHub</a>
                 <a href="https://linkedin.com/in/swapnilpawar17" target="_blank">💼 LinkedIn</a>
             </div>
-            <p style="margin-top: 15px; font-size: 13px; color: #999;">
-                Last updated: February 2025
+            <p style="margin-top: 15px; font-size: 13px; color: #71717a;">
+                Last updated: February 2026
             </p>
         </footer>
     </div>
@@ -418,7 +455,7 @@
     <script>
         const hackathons = [
             {
-                name: "Smart India Hackathon 2025",
+                name: "Smart India Hackathon",
                 platform: "Government",
                 organizer: "Government of India",
                 mode: "Hybrid",
@@ -427,7 +464,7 @@
                 fresher: true
             },
             {
-                name: "Google Solution Challenge 2025",
+                name: "Google Solution Challenge",
                 platform: "Google",
                 organizer: "Google Developer Student Clubs",
                 mode: "Online",
@@ -436,7 +473,7 @@
                 fresher: true
             },
             {
-                name: "Microsoft Imagine Cup 2025",
+                name: "Microsoft Imagine Cup",
                 platform: "Microsoft",
                 organizer: "Microsoft",
                 mode: "Online",
@@ -454,16 +491,25 @@
                 fresher: true
             },
             {
+                name: "ET Gen AI Hackathon",
+                platform: "Other",
+                organizer: "Economic Times",
+                mode: "Hybrid",
+                link: "#",
+                prize: "Exclusive Rewards",
+                fresher: true
+            },
+            {
                 name: "AWS DeepRacer Student League",
                 platform: "AWS",
                 organizer: "Amazon Web Services",
                 mode: "Online",
                 link: "https://aws.amazon.com/deepracer/student/",
-                prize: "Scholarships + AWS Credits",
+                prize: "Scholarships + Credits",
                 fresher: true
             },
             {
-                name: "Schneider Go Green 2025",
+                name: "Schneider Go Green",
                 platform: "Unstop",
                 organizer: "Schneider Electric",
                 mode: "Online",
@@ -499,7 +545,7 @@
                 fresher: true
             },
             {
-                name: "Meta Hacker Cup 2025",
+                name: "Meta Hacker Cup",
                 platform: "Meta",
                 organizer: "Meta",
                 mode: "Online",
@@ -514,23 +560,22 @@
             
             if (list.length === 0) {
                 grid.innerHTML = `
-                    <div class="no-results" style="grid-column: 1 / -1;">
-                        <div class="no-results-icon">🔍</div>
-                        <h3>No hackathons found</h3>
-                        <p>Try adjusting your filters</p>
+                    <div class="no-results glass-panel" style="grid-column: 1 / -1;">
+                        <div class="no-results-icon">📡</div>
+                        <h3 style="color: #f4f4f5; margin-bottom: 8px;">No hackathons found</h3>
+                        <p>Try adjusting your search or filters.</p>
                     </div>
                 `;
                 return;
             }
 
             grid.innerHTML = list.map(h => `
-                <div class="card">
+                <div class="card glass-panel">
                     <div class="card-header">
                         <div class="card-title">${h.name}</div>
                         <div class="tags">
                             <span class="tag">${h.platform}</span>
-                            <span class="tag">${h.mode}</span>
-                            <span class="tag">🔴 LIVE</span>
+                            <span class="tag mode">${h.mode}</span>
                         </div>
                     </div>
                     <div class="card-body">
@@ -563,10 +608,14 @@
 
             renderCards(filtered);
             document.getElementById('total-count').textContent = filtered.length;
+            
+            // Calculate dynamic fresher count
+            const fresherCount = filtered.filter(h => h.fresher).length;
+            document.getElementById('fresher-count').textContent = fresherCount;
         }
 
         // Initial render
-        renderCards(hackathons);
+        filterHackathons();
     </script>
 </body>
 </html>
