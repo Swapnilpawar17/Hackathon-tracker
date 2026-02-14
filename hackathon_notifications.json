@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-12T19:42:23.716446",
+  "timestamp": "2026-02-14T00:14:59.128244",
   "count": 33,
   "hackathons": [
     {
@@ -12,38 +12,29 @@
       "organizer": "DPhi Tech"
     },
     {
-      "name": "Solswitch",
+      "name": "Odsai Hackathon Contest 2026",
       "platform": "GitHub",
-      "registration_link": "https://github.com/decentrathai/solswitch",
+      "registration_link": "https://github.com/timurtamoev/odsAI-Hackathon-Contest-2026",
       "mode": "Online",
-      "organizer": "decentrathai",
+      "organizer": "timurtamoev",
       "fresher_friendly": true,
       "status": "Live"
     },
     {
-      "name": "Fraudlens Ai",
+      "name": "Airguard Hackathon Technofest2026",
       "platform": "GitHub",
-      "registration_link": "https://github.com/Abi5678/fraudlens-ai",
+      "registration_link": "https://github.com/SaifanX/airguard-hackathon-technofest2026",
       "mode": "Online",
-      "organizer": "Abi5678",
+      "organizer": "SaifanX",
       "fresher_friendly": true,
       "status": "Live"
     },
     {
-      "name": "2026 Google Hackathon",
+      "name": "Flipside",
       "platform": "GitHub",
-      "registration_link": "https://github.com/Kadoshima/2026_google_Hackathon",
+      "registration_link": "https://github.com/voelspriet/flipside",
       "mode": "Online",
-      "organizer": "Kadoshima",
-      "fresher_friendly": true,
-      "status": "Live"
-    },
-    {
-      "name": "Repomedic",
-      "platform": "GitHub",
-      "registration_link": "https://github.com/jeanclawdbotdamn/repomedic",
-      "mode": "Online",
-      "organizer": "jeanclawdbotdamn",
+      "organizer": "voelspriet",
       "fresher_friendly": true,
       "status": "Live"
     },
@@ -57,47 +48,56 @@
       "status": "Live"
     },
     {
-      "name": "Taleemabad Hackathon Study Plannerr",
+      "name": "Fraudlens Ai",
       "platform": "GitHub",
-      "registration_link": "https://github.com/umairsolangi/taleemabad-hackathon-study-plannerr",
+      "registration_link": "https://github.com/Abi5678/fraudlens-ai",
       "mode": "Online",
-      "organizer": "umairsolangi",
+      "organizer": "Abi5678",
       "fresher_friendly": true,
       "status": "Live"
     },
     {
-      "name": "Claude Code Hackathon",
+      "name": "Shiksha Disha",
       "platform": "GitHub",
-      "registration_link": "https://github.com/mrlukealvarez/claude-code-hackathon",
+      "registration_link": "https://github.com/saad2134/shiksha-disha",
       "mode": "Online",
-      "organizer": "mrlukealvarez",
+      "organizer": "saad2134",
       "fresher_friendly": true,
       "status": "Live"
     },
     {
-      "name": "True Claim",
+      "name": "Minis Hackathon",
       "platform": "GitHub",
-      "registration_link": "https://github.com/Udit-Agrawal-2007/True-Claim",
+      "registration_link": "https://github.com/alliecatowo/minis-hackathon",
       "mode": "Online",
-      "organizer": "Udit-Agrawal-2007",
+      "organizer": "alliecatowo",
       "fresher_friendly": true,
       "status": "Live"
     },
     {
-      "name": "Chalo Kisaan",
+      "name": "Paginahackathon2026",
       "platform": "GitHub",
-      "registration_link": "https://github.com/jishanahmed-shaikh/chalo-kisaan",
+      "registration_link": "https://github.com/QuikeStifler/PaginaHackathon2026",
       "mode": "Online",
-      "organizer": "jishanahmed-shaikh",
+      "organizer": "QuikeStifler",
       "fresher_friendly": true,
       "status": "Live"
     },
     {
-      "name": "2026 Hackathon",
+      "name": "Pipelinehealer",
       "platform": "GitHub",
-      "registration_link": "https://github.com/MADHAVAN-kds/2026-Hackathon",
+      "registration_link": "https://github.com/Canepro/pipelinehealer",
       "mode": "Online",
-      "organizer": "MADHAVAN-kds",
+      "organizer": "Canepro",
+      "fresher_friendly": true,
+      "status": "Live"
+    },
+    {
+      "name": "Treehacks 2026 Elastic Resources",
+      "platform": "GitHub",
+      "registration_link": "https://github.com/jdarmada/TreeHacks-2026-Elastic-Resources",
+      "mode": "Online",
+      "organizer": "jdarmada",
       "fresher_friendly": true,
       "status": "Live"
     },

@@ -1,0 +1,543 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>🚀 LIVE Hackathons - February 13, 2026</title>
+            <meta charset="utf-8">
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+                
+                body {
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    min-height: 100vh;
+                    padding: 20px;
+                }
+                
+                .container {
+                    max-width: 900px;
+                    margin: 0 auto;
+                    background: white;
+                    border-radius: 15px;
+                    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+                    overflow: hidden;
+                }
+                
+                .header {
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    padding: 40px;
+                    text-align: center;
+                }
+                
+                .header h1 {
+                    font-size: 36px;
+                    margin-bottom: 10px;
+                }
+                
+                .header p {
+                    font-size: 18px;
+                    opacity: 0.95;
+                }
+                
+                .stats {
+                    display: flex;
+                    justify-content: space-around;
+                    padding: 30px;
+                    background: #f8f9fa;
+                    border-bottom: 2px solid #e9ecef;
+                }
+                
+                .stat-box {
+                    text-align: center;
+                }
+                
+                .stat-number {
+                    font-size: 32px;
+                    font-weight: bold;
+                    color: #667eea;
+                    display: block;
+                }
+                
+                .stat-label {
+                    font-size: 14px;
+                    color: #6c757d;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+                
+                .content {
+                    padding: 30px;
+                }
+                
+                .hackathon-card {
+                    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+                    border-radius: 10px;
+                    padding: 25px;
+                    margin-bottom: 20px;
+                    transition: transform 0.3s, box-shadow 0.3s;
+                }
+                
+                .hackathon-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+                }
+                
+                .hackathon-name {
+                    font-size: 22px;
+                    font-weight: bold;
+                    color: #2c3e50;
+                    margin-bottom: 15px;
+                }
+                
+                .hackathon-details {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    margin-bottom: 15px;
+                }
+                
+                .tag {
+                    display: inline-block;
+                    padding: 6px 15px;
+                    border-radius: 20px;
+                    font-size: 13px;
+                    font-weight: 500;
+                }
+                
+                .tag-platform {
+                    background: #667eea;
+                    color: white;
+                }
+                
+                .tag-mode {
+                    background: #28a745;
+                    color: white;
+                }
+                
+                .tag-status {
+                    background: #dc3545;
+                    color: white;
+                }
+                
+                .info-row {
+                    margin: 10px 0;
+                    color: #495057;
+                    font-size: 15px;
+                }
+                
+                .info-row strong {
+                    color: #2c3e50;
+                }
+                
+                .register-btn {
+                    display: inline-block;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    color: white;
+                    padding: 12px 30px;
+                    text-decoration: none;
+                    border-radius: 25px;
+                    font-weight: bold;
+                    font-size: 15px;
+                    transition: transform 0.3s, box-shadow 0.3s;
+                    margin-top: 10px;
+                }
+                
+                .register-btn:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+                }
+                
+                .footer {
+                    background: #f8f9fa;
+                    padding: 30px;
+                    text-align: center;
+                    color: #6c757d;
+                    font-size: 14px;
+                }
+                
+                .badge-live {
+                    display: inline-block;
+                    background: #dc3545;
+                    color: white;
+                    padding: 4px 12px;
+                    border-radius: 12px;
+                    font-size: 11px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    animation: pulse 2s infinite;
+                    margin-left: 10px;
+                }
+                
+                @keyframes pulse {
+                    0% { opacity: 1; }
+                    50% { opacity: 0.7; }
+                    100% { opacity: 1; }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="header">
+                    <h1>🚀 LIVE Hackathons Found!</h1>
+                    <p>Active competitions accepting registrations now</p>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-box">
+                        <span class="stat-number">33</span>
+                        <span class="stat-label">Live Hackathons</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Platforms</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">33</span>
+                        <span class="stat-label">Fresher Friendly</span>
+                    </div>
+                </div>
+                
+                <div class="content">
+                    <h2 style="color: #2c3e50; margin-bottom: 25px;">
+                        📋 Active Hackathons 
+                        <span class="badge-live">LIVE</span>
+                    </h2>
+        
+                    <div class="hackathon-card">
+                        <div class="hackathon-name">
+                            1. DPhi AI Bootcamp Challenge
+                        </div>
+                        <div class="hackathon-details">
+                            <span class="tag tag-platform">DPhi</span>
+                            <span class="tag tag-mode">Online</span>
+                            <span class="tag tag-status">LIVE NOW</span>
+                        </div>
+            <div class="info-row"><strong>🏢 Organizer:</strong> DPhi Tech</div><div class="info-row"><strong>🏆 Prize Pool:</strong> Prizes to be announced</div><div class="info-row"><strong>✅ Fresher Friendly:</strong> Perfect for beginners!</div>
+                        <a href="https://dphi.tech/challenges" target="_blank" class="register-btn">
+                            Register Now →
+                        </a>
+                
+                    </div>
+            
+                    <div class="hackathon-card">
+                        <div class="hackathon-name">
+                            2. Moltapp
+                        </div>
+                        <div class="hackathon-details">
+                            <span class="tag tag-platform">GitHub</span>
+                            <span class="tag tag-mode">Online</span>
+                            <span class="tag tag-status">LIVE NOW</span>
+                        </div>
+            <div class="info-row"><strong>🏢 Organizer:</strong> patruff</div><div class="info-row"><strong>🏆 Prize Pool:</strong> Prizes to be announced</div><div class="info-row"><strong>✅ Fresher Friendly:</strong> Perfect for beginners!</div>
+                        <a href="https://github.com/patruff/moltapp" target="_blank" class="register-btn">
+                            Register Now →
+                        </a>
+                
+                    </div>
+            
+                    <div class="hackathon-card">
+                        <div class="hackathon-name">
+                            3. Fraudlens Ai
+                        </div>
+                        <div class="hackathon-details">
+                            <span class="tag tag-platform">GitHub</span>
+                            <span class="tag tag-mode">Online</span>
+                            <span class="tag tag-status">LIVE NOW</span>
+                        </div>
+            <div class="info-row"><strong>🏢 Organizer:</strong> Abi5678</div><div class="info-row"><strong>🏆 Prize Pool:</strong> Prizes to be announced</div><div class="info-row"><strong>✅ Fresher Friendly:</strong> Perfect for beginners!</div>
+                        <a href="https://github.com/Abi5678/fraudlens-ai" target="_blank" class="register-btn">
+                            Register Now →
+                        </a>
+                
+                    </div>
+            
+                    <div class="hackathon-card">
+                        <div class="hackathon-name">
+                            4. Shiksha Disha
+                        </div>
+                        <div class="hackathon-details">
+                            <span class="tag tag-platform">GitHub</span>
+                            <span class="tag tag-mode">Online</span>
+                            <span class="tag tag-status">LIVE NOW</span>
+                        </div>
+            <div class="info-row"><strong>🏢 Organizer:</strong> saad2134</div><div class="info-row"><strong>🏆 Prize Pool:</strong> Prizes to be announced</div><div class="info-row"><strong>✅ Fresher Friendly:</strong> Perfect for beginners!</div>
+                        <a href="https://github.com/saad2134/shiksha-disha" target="_blank" class="register-btn">
+                            Register Now →
+                        </a>
+                
+                    </div>
+            
+                    <div class="hackathon-card">
+                        <div class="hackathon-name">
+                            5. Minis Hackathon
+                        </div>
+                        <div class="hackathon-details">
+                            <span class="tag tag-platform">GitHub</span>
+                            <span class="tag tag-mode">Online</span>
+                            <span class="tag tag-status">LIVE NOW</span>
+                        </div>
+            <div class="info-row"><strong>🏢 Organizer:</strong> alliecatowo</div><div class="info-row"><strong>🏆 Prize Pool:</strong> Prizes to be announced</div><div class="info-row"><strong>✅ Fresher Friendly:</strong> Perfect for beginners!</div>
+                        <a href="https://github.com/alliecatowo/minis-hackathon" target="_blank" class="register-btn">
+                            Register Now →
+                        </a>
+                
+                    </div>
+            
+                    <div class="hackathon-card">
+                        <div class="hackathon-name">
+                            6. Odsai Hackathon Contest 2026
+                        </div>
+                        <div class="hackathon-details">
+                            <span class="tag tag-platform">GitHub</span>
+                            <span class="tag tag-mode">Online</span>
+                            <span class="tag tag-status">LIVE NOW</span>
+                        </div>
+            <div class="info-row"><strong>🏢 Organizer:</strong> timurtamoev</div><div class="info-row"><strong>🏆 Prize Pool:</strong> Prizes to be announced</div><div class="info-row"><strong>✅ Fresher Friendly:</strong> Perfect for beginners!</div>
+                        <a href="https://github.com/timurtamoev/odsAI-Hackathon-Contest-2026" target="_blank" class="register-btn">
+                            Register Now →
+                        </a>
+                
+                    </div>
+            
+                    <div class="hackathon-card">
+                        <div class="hackathon-name">
+                            7. Paginahackathon2026
+                        </div>
+                        <div class="hackathon-details">
+                            <span class="tag tag-platform">GitHub</span>
+                            <span class="tag tag-mode">Online</span>
+                            <span class="tag tag-status">LIVE NOW</span>
+                        </div>
+            <div class="info-row"><strong>🏢 Organizer:</strong> QuikeStifler</div><div class="info-row"><strong>🏆 Prize Pool:</strong> Prizes to be announced</div><div class="info-row"><strong>✅ Fresher Friendly:</strong> Perfect for beginners!</div>
+                        <a href="https://github.com/QuikeStifler/PaginaHackathon2026" target="_blank" class="register-btn">
+                            Register Now →
+                        </a>
+                
+                    </div>
+            
+                    <div class="hackathon-card">
+                        <div class="hackathon-name">
+                            8. Pipelinehealer
+                        </div>
+                        <div class="hackathon-details">
+                            <span class="tag tag-platform">GitHub</span>
+                            <span class="tag tag-mode">Online</span>
+                            <span class="tag tag-status">LIVE NOW</span>
+                        </div>
+            <div class="info-row"><strong>🏢 Organizer:</strong> Canepro</div><div class="info-row"><strong>🏆 Prize Pool:</strong> Prizes to be announced</div><div class="info-row"><strong>✅ Fresher Friendly:</strong> Perfect for beginners!</div>
+                        <a href="https://github.com/Canepro/pipelinehealer" target="_blank" class="register-btn">
+                            Register Now →
+                        </a>
+                
+                    </div>
+            
+                    <div class="hackathon-card">
+                        <div class="hackathon-name">
+                            9. Treehacks 2026 Elastic Resources
+                        </div>
+                        <div class="hackathon-details">
+                            <span class="tag tag-platform">GitHub</span>
+                            <span class="tag tag-mode">Online</span>
+                            <span class="tag tag-status">LIVE NOW</span>
+                        </div>
+            <div class="info-row"><strong>🏢 Organizer:</strong> jdarmada</div><div class="info-row"><strong>🏆 Prize Pool:</strong> Prizes to be announced</div><div class="info-row"><strong>✅ Fresher Friendly:</strong> Perfect for beginners!</div>
+                        <a href="https://github.com/jdarmada/TreeHacks-2026-Elastic-Resources" target="_blank" class="register-btn">
+                            Register Now →
+                        </a>
+                
+                    </div>
+            
+                    <div class="hackathon-card">
+                        <div class="hackathon-name">
+                            10. Nie National Level Hackathon 2026
+                        </div>
+                        <div class="hackathon-details">
+                            <span class="tag tag-platform">GitHub</span>
+                            <span class="tag tag-mode">Online</span>
+                            <span class="tag tag-status">LIVE NOW</span>
+                        </div>
+            <div class="info-row"><strong>🏢 Organizer:</strong> navanieti2026</div><div class="info-row"><strong>🏆 Prize Pool:</strong> Prizes to be announced</div><div class="info-row"><strong>✅ Fresher Friendly:</strong> Perfect for beginners!</div>
+                        <a href="https://github.com/navanieti2026/NIE_National_level_hackathon_2026" target="_blank" class="register-btn">
+                            Register Now →
+                        </a>
+                
+                    </div>
+            
+                    <div class="hackathon-card">
+                        <div class="hackathon-name">
+                            11. Fomolt3D
+                        </div>
+                        <div class="hackathon-details">
+                            <span class="tag tag-platform">GitHub</span>
+                            <span class="tag tag-mode">Online</span>
+                            <span class="tag tag-status">LIVE NOW</span>
+                        </div>
+            <div class="info-row"><strong>🏢 Organizer:</strong> crocodiledundalk</div><div class="info-row"><strong>🏆 Prize Pool:</strong> Prizes to be announced</div><div class="info-row"><strong>✅ Fresher Friendly:</strong> Perfect for beginners!</div>
+                        <a href="https://github.com/crocodiledundalk/FOMolt3D" target="_blank" class="register-btn">
+                            Register Now →
+                        </a>
+                
+                    </div>
+            
+                    <div class="hackathon-card">
+                        <div class="hackathon-name">
+                            12. GitHub Campus Expert Program
+                        </div>
+                        <div class="hackathon-details">
+                            <span class="tag tag-platform">GitHub</span>
+                            <span class="tag tag-mode">Online</span>
+                            <span class="tag tag-status">LIVE NOW</span>
+                        </div>
+            <div class="info-row"><strong>🏢 Organizer:</strong> GitHub Education</div><div class="info-row"><strong>🏆 Prize Pool:</strong> Training + Swag + Conference Tickets</div><div class="info-row"><strong>✅ Fresher Friendly:</strong> Perfect for beginners!</div>
+                        <a href="https://education.github.com/experts" target="_blank" class="register-btn">
+                            Register Now →
+                        </a>
+                
+                    </div>
+            
+                    <div class="hackathon-card">
+                        <div class="hackathon-name">
+                            13. Global Hack Week: GenAI
+                        </div>
+                        <div class="hackathon-details">
+                            <span class="tag tag-platform">MLH</span>
+                            <span class="tag tag-mode">Hybrid</span>
+                            <span class="tag tag-status">LIVE NOW</span>
+                        </div>
+            <div class="info-row"><strong>🏢 Organizer:</strong> Major League Hacking</div><div class="info-row"><strong>🏆 Prize Pool:</strong> Prizes to be announced</div><div class="info-row"><strong>✅ Fresher Friendly:</strong> Perfect for beginners!</div>
+                        <a href="https://events.mlh.io/events/12402-global-hack-week-genai?utm_source=mlh&utm_medium=referral&utm_campaign=season_events&utm_content=Global+Hack+Week%3A+GenAI" target="_blank" class="register-btn">
+                            Register Now →
+                        </a>
+                
+                    </div>
+            
+                    <div class="hackathon-card">
+                        <div class="hackathon-name">
+                            14. Global Hack Week: Open Source Week
+                        </div>
+                        <div class="hackathon-details">
+                            <span class="tag tag-platform">MLH</span>
+                            <span class="tag tag-mode">Hybrid</span>
+                            <span class="tag tag-status">LIVE NOW</span>
+                        </div>
+            <div class="info-row"><strong>🏢 Organizer:</strong> Major League Hacking</div><div class="info-row"><strong>🏆 Prize Pool:</strong> Prizes to be announced</div><div class="info-row"><strong>✅ Fresher Friendly:</strong> Perfect for beginners!</div>
+                        <a href="https://events.mlh.io/events/12300-global-hack-week-open-source-week?utm_source=mlh&utm_medium=referral&utm_campaign=season_events&utm_content=Global+Hack+Week%3A+Open+Source+Week" target="_blank" class="register-btn">
+                            Register Now →
+                        </a>
+                
+                    </div>
+            
+                    <div class="hackathon-card">
+                        <div class="hackathon-name">
+                            15. Global Hack Week: API Week
+                        </div>
+                        <div class="hackathon-details">
+                            <span class="tag tag-platform">MLH</span>
+                            <span class="tag tag-mode">Hybrid</span>
+                            <span class="tag tag-status">LIVE NOW</span>
+                        </div>
+            <div class="info-row"><strong>🏢 Organizer:</strong> Major League Hacking</div><div class="info-row"><strong>🏆 Prize Pool:</strong> Prizes to be announced</div><div class="info-row"><strong>✅ Fresher Friendly:</strong> Perfect for beginners!</div>
+                        <a href="https://events.mlh.io/events/12179-global-hack-week-api-week?utm_source=mlh&utm_medium=referral&utm_campaign=season_events&utm_content=Global+Hack+Week%3A+API+Week" target="_blank" class="register-btn">
+                            Register Now →
+                        </a>
+                
+                    </div>
+            
+                    <div class="hackathon-card">
+                        <div class="hackathon-name">
+                            16. Global Hack Week: Cloud Week
+                        </div>
+                        <div class="hackathon-details">
+                            <span class="tag tag-platform">MLH</span>
+                            <span class="tag tag-mode">Hybrid</span>
+                            <span class="tag tag-status">LIVE NOW</span>
+                        </div>
+            <div class="info-row"><strong>🏢 Organizer:</strong> Major League Hacking</div><div class="info-row"><strong>🏆 Prize Pool:</strong> Prizes to be announced</div><div class="info-row"><strong>✅ Fresher Friendly:</strong> Perfect for beginners!</div>
+                        <a href="https://events.mlh.io/events/12083-global-hack-week-cloud-week?utm_source=mlh&utm_medium=referral&utm_campaign=season_events&utm_content=Global+Hack+Week%3A+Cloud+Week" target="_blank" class="register-btn">
+                            Register Now →
+                        </a>
+                
+                    </div>
+            
+                    <div class="hackathon-card">
+                        <div class="hackathon-name">
+                            17. Global Hack Week: AI/ML Week
+                        </div>
+                        <div class="hackathon-details">
+                            <span class="tag tag-platform">MLH</span>
+                            <span class="tag tag-mode">Hybrid</span>
+                            <span class="tag tag-status">LIVE NOW</span>
+                        </div>
+            <div class="info-row"><strong>🏢 Organizer:</strong> Major League Hacking</div><div class="info-row"><strong>🏆 Prize Pool:</strong> Prizes to be announced</div><div class="info-row"><strong>✅ Fresher Friendly:</strong> Perfect for beginners!</div>
+                        <a href="https://events.mlh.io/events/12026-global-hack-week-ai-ml-week?utm_source=mlh&utm_medium=referral&utm_campaign=season_events&utm_content=Global+Hack+Week%3A+AI%2FML+Week" target="_blank" class="register-btn">
+                            Register Now →
+                        </a>
+                
+                    </div>
+            
+                    <div class="hackathon-card">
+                        <div class="hackathon-name">
+                            18. Global Hack Week: Beginners Week
+                        </div>
+                        <div class="hackathon-details">
+                            <span class="tag tag-platform">MLH</span>
+                            <span class="tag tag-mode">Hybrid</span>
+                            <span class="tag tag-status">LIVE NOW</span>
+                        </div>
+            <div class="info-row"><strong>🏢 Organizer:</strong> Major League Hacking</div><div class="info-row"><strong>🏆 Prize Pool:</strong> Prizes to be announced</div><div class="info-row"><strong>✅ Fresher Friendly:</strong> Perfect for beginners!</div>
+                        <a href="https://events.mlh.io/events/11842-global-hack-week-beginners-week?utm_source=mlh&utm_medium=referral&utm_campaign=season_events&utm_content=Global+Hack+Week%3A+Beginners+Week" target="_blank" class="register-btn">
+                            Register Now →
+                        </a>
+                
+                    </div>
+            
+                    <div class="hackathon-card">
+                        <div class="hackathon-name">
+                            19. Google Solution Challenge 2025
+                        </div>
+                        <div class="hackathon-details">
+                            <span class="tag tag-platform">Other</span>
+                            <span class="tag tag-mode">Online</span>
+                            <span class="tag tag-status">LIVE NOW</span>
+                        </div>
+            <div class="info-row"><strong>🏢 Organizer:</strong> Google Developer Student Clubs</div><div class="info-row"><strong>🏆 Prize Pool:</strong> $3,000 + Mentorship + Swag</div><div class="info-row"><strong>✅ Fresher Friendly:</strong> Perfect for beginners!</div>
+                        <a href="https://developers.google.com/community/gdsc-solution-challenge" target="_blank" class="register-btn">
+                            Register Now →
+                        </a>
+                
+                    </div>
+            
+                    <div class="hackathon-card">
+                        <div class="hackathon-name">
+                            20. Microsoft Imagine Cup 2025
+                        </div>
+                        <div class="hackathon-details">
+                            <span class="tag tag-platform">Other</span>
+                            <span class="tag tag-mode">Online</span>
+                            <span class="tag tag-status">LIVE NOW</span>
+                        </div>
+            <div class="info-row"><strong>🏢 Organizer:</strong> Microsoft</div><div class="info-row"><strong>🏆 Prize Pool:</strong> $100,000 + Azure Credits + Mentorship</div><div class="info-row"><strong>✅ Fresher Friendly:</strong> Perfect for beginners!</div>
+                        <a href="https://imaginecup.microsoft.com/" target="_blank" class="register-btn">
+                            Register Now →
+                        </a>
+                
+                    </div>
+            
+                </div>
+                <div class="footer">
+                    <p><strong>🎯 Hackathon Tracker - For CSE Freshers 2025</strong></p>
+                    <p>Report generated on February 13, 2026 at 11:52 PM</p>
+                    <p style="margin-top: 15px; font-size: 12px;">
+                        All hackathons shown are currently LIVE and accepting registrations.
+                    </p>
+                </div>
+            </div>
+        </body>
+        </html>
+        
